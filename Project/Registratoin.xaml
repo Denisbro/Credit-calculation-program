@@ -1,0 +1,138 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp6"
+    xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WpfApp6.Window2"
+        mc:Ignorable="d"
+        Title="Registration" Height="420" Width="530" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid  Background="#FFF3F3F3">
+        <TabControl Name="tab">
+            <TabItem VerticalAlignment="Top" Opacity="0">
+                <Grid>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" x:Name="textBlockHeading" Text="Registration:" VerticalAlignment="Top" Width="110"  FontSize="17" FontStretch="ExtraCondensed"/>
+
+                    <Button Margin="451,5,12,288" Content="Login" Cursor="Hand" Click="Button_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <TextBlock TextDecorations="Underline"><InlineUIContainer> 
+                            <ContentPresenter />
+                        </InlineUIContainer></TextBlock>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Foreground" Value="Navy" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Foreground" Value="Red" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Grid Margin="10,0,12,10" Background="White" Height="307" VerticalAlignment="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="187*"/>
+                            <ColumnDefinition Width="315*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel >
+                            <TextBlock Height="26" Margin="0,7" HorizontalAlignment="Left" x:Name="FIO" Text="ФИО" Width="110" />
+                            <TextBlock Height="26" Margin="0,7"  HorizontalAlignment="Left"  x:Name="PASSPORT" Text="Паспортные данные" VerticalAlignment="Top" Width="127" />
+                            <TextBlock Height="26" Margin="0,7"  HorizontalAlignment="Left"  x:Name="Money" Text="Средняя заработаная плата" Width="158" />
+                            <TextBlock Height="26" Margin="0,7"  HorizontalAlignment="Left"  x:Name="date" Text="Дата рождения" VerticalAlignment="Top" Width="110"  />
+                            <TextBlock Height="26" Margin="0,7"  HorizontalAlignment="Left"  x:Name="nomber" Text="Телефон" VerticalAlignment="Top" Width="110" Grid.RowSpan="2" />
+                            <TextBlock Height="26" Margin="0,7"  HorizontalAlignment="Left"  x:Name="ardess" Text="Адресс проживания"  Width="127" />
+                            <TextBlock Height="26" Margin="0,7"  HorizontalAlignment="Left"  x:Name="house" Text="Место работы"  Width="127" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxFirstName" VerticalAlignment="Top" Width="222" Margin="0,7"  PreviewTextInput="textBoxFirstName_PreviewTextInput"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxLastName" VerticalAlignment="Top" Width="222" Margin="0,7" TextInput="textBoxLastName_TextInput"  PreviewTextInput="textBoxLastName_TextInput" />
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxEmail" VerticalAlignment="Top" Width="222" Margin="0,7" TextInput="textBoxLastName_TextInput"  PreviewTextInput="textBoxLastName_TextInput" />
+                            <DatePicker materialDesign:HintAssist.Hint="Pick Date" Name="datepi" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Width="222"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="pa" VerticalAlignment="Top" Width="222" Margin="0,7" TextInput="textBoxLastName_TextInput" PreviewTextInput="textBoxLastName_TextInput" />
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxAddress" VerticalAlignment="Bottom" Width="222" Margin="0,7" PreviewTextInput="textBoxFirstName_PreviewTextInput"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="y" VerticalAlignment="Bottom" Width="222" Margin="0,7" PreviewTextInput="textBoxFirstName_PreviewTextInput"/>
+                        </StackPanel>
+                        <Button Content="Подтвердить" Height="30" HorizontalAlignment="Right" Margin="0,277,27,0" x:Name="Submit" VerticalAlignment="Top" Width="121" Grid.Column="1" Click="Submit_Click" />
+                        <Button Content="Сброс" Height="30" HorizontalAlignment="Left" Margin="45,277,0,0" x:Name="button2" VerticalAlignment="Top" Width="90" Click="button2_Click"  />
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem VerticalAlignment="Top" Opacity="0" Visibility="Hidden">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="nuzhna-pomosch-v-poluchenii-kredita-s-plohoy-kreditnoy-istoriey.jpg"/>
+                    </Grid.Background>
+                    <StackPanel>
+                        <ComboBox materialDesign:HintAssist.Hint="Выбор кредитования" IsEditable="True" materialDesign:HintAssist.HintOpacity="4" SelectionChanged="ComboBox_SelectionChanged" Margin="0,10,0,0" Name="comb">
+                            <ComboBoxItem>
+                                Автокредитование(6 мес)
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Ипотека (96 мес)
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Ипотека (36 емс)
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Ипотека (12 мес)
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Потребительский кредит (36 мес)
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Потребительский кредит (24)
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <Rectangle Width="440" Height="272" Fill="White" VerticalAlignment="Center" Margin="40,2,0,-28" RadiusY="18.572" RadiusX="18.572" HorizontalAlignment="Left">
+                        <Rectangle.Effect>
+                            <DropShadowEffect  Direction="5" BlurRadius="5" RenderingBias="Quality" ShadowDepth="1"/>
+                        </Rectangle.Effect>
+                    </Rectangle>
+                    <Grid Height="272" VerticalAlignment="Bottom" Margin="40,0,43.2,34.4">
+                        <StackPanel Margin="20,21,225,176">
+                            <TextBlock Text="Код кредита" HorizontalAlignment="Center"/>
+                            <TextBlock Text="" Height="30" Name="et1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="220,21,25,176">
+                            <TextBlock Text="Минимальная заработная плата" HorizontalAlignment="Center"/>
+                            <TextBlock Text="" Height="30" Name="et2" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="20,101,225,96">
+                            <TextBlock Text="Процент годовых" HorizontalAlignment="Center"/>
+                            <TextBlock Text="" Height="30" Name="et3" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="220,101,25,96">
+                            <TextBlock Text="Срок (Мес)" HorizontalAlignment="Center"/>
+                            <TextBlock Text="" Height="30" Name="et4" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </StackPanel>
+               
+                  <StackPanel Margin="125,176,120,21">
+                    <TextBlock Text="Необходимая сумма" HorizontalAlignment="Center"/>
+                            <TextBox VerticalAlignment="Bottom" Name="inp" PreviewTextInput="textBoxLastName_TextInput"/>
+                </StackPanel>
+            </Grid>
+                    <Button Margin="20"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click_3">
+                        <Button.ToolTip>
+                            <ToolTip>
+                                Запустить калькулятор
+                            </ToolTip>
+                        </Button.ToolTip>
+                        <materialDesign:PackIcon Kind="Calculator"/>
+                    </Button>
+                    <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="385,310,0,0" VerticalAlignment="Top" Width="128" Height="35" Click="Button_Click_2"/>
+                    <Button Content="Назад" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="83" Height="35" Click="Button_Click_1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

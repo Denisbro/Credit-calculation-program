@@ -1,0 +1,174 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp6"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WpfApp6.Window1"
+        mc:Ignorable="d"
+        Title="Window1" Height="500" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Loaded="Window_Loaded" Unloaded="Window_Unloaded" MouseLeftButtonDown="Window_MouseLeftButtonDown" x:Name="windows" PreviewKeyDown="Windows_PreviewKeyDown">
+    <Grid >
+        <Grid Height="40" VerticalAlignment="Top" Background="{DynamicResource PrimaryHueMidBrush}">
+            <DockPanel>
+                <Button DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Выход из приложения
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+                <Button DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click_1">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Смена пользователя
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <materialDesign:PackIcon Kind="LogoutVariant"/>
+                </Button>
+            </DockPanel>
+        </Grid>
+        <Grid Margin="0 40 0 0">
+            <dragablz:TabablzControl >
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+            <TabItem Header="Обновление записей">
+                    <Grid>
+                <StackPanel Margin="0,15,300,365" HorizontalAlignment="Left">
+                            <ComboBox Name="list" Width="300" SelectionChanged="list_SelectionChanged"/>
+                        </StackPanel>
+
+            <Grid Height="360" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="43*"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="43*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" >
+                    <Grid VerticalAlignment="Bottom" Height="385">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180*"/>
+                            <ColumnDefinition Width="241*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="10,0,0,0">
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"  x:Name="FIO" Text="ФИО" Width="110" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"  x:Name="PASSPORT" Text="Паспортные данные" VerticalAlignment="Top" Width="127" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"  x:Name="Money" Text="Средняя заработаная плата" Width="158" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"  x:Name="date" Text="Дата рождения" VerticalAlignment="Top" Width="110"  />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"  x:Name="nomber" Text="Телефон" VerticalAlignment="Top" Width="110"/>
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"  x:Name="ardess" Text="Адресс проживания"  Width="127" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"  x:Name="house" Text="Место работы"  Width="127" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxFirstName" VerticalAlignment="Top" Width="222" Margin="0,10" IsEnabled="False"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxLastName" VerticalAlignment="Top" Width="222" Margin="0,10" IsEnabled="False"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxEmail" VerticalAlignment="Top" Width="222" Margin="0,10" IsEnabled="False"/>
+                            <DatePicker materialDesign:HintAssist.Hint="Pick Date" Name="datepi" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Width="222" IsEnabled="False"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="pa" VerticalAlignment="Top" Width="222" Margin="0,10" IsEnabled="False"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="textBoxAddress" VerticalAlignment="Bottom" Width="222" Margin="0,10" IsEnabled="False"/>
+                            <TextBox Height="26" HorizontalAlignment="Left"  x:Name="y" VerticalAlignment="Bottom" Width="222" Margin="0,10" IsEnabled="False"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <Grid VerticalAlignment="Bottom" Height="385">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="191*"/>
+                            <ColumnDefinition Width="230*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"   Text="ФИО" Width="110" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"   Text="Паспортные данные" VerticalAlignment="Top" Width="127" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"   Text="Средняя заработаная плата" Width="158" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"   Text="Дата рождения" VerticalAlignment="Top" Width="110"  />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"   Text="Телефон" VerticalAlignment="Top" Width="110"/>
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"   Text="Адресс проживания"  Width="127" />
+                            <TextBlock Height="26" Margin="0,10"  HorizontalAlignment="Left"   Text="Место работы"  Width="127" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" >
+                            <TextBox Name="r1" Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="222" Margin="0,10"/>
+                            <TextBox Name="r2" Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="222" Margin="0,10"/>
+                            <TextBox Name="r3" Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="222" Margin="0,10"/>
+                            <DatePicker Name="r4" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Width="222"/>
+                            <TextBox Name="r5" Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="222" Margin="0,10"/>
+                            <TextBox Name="r6" Height="26" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="222" Margin="0,10"/>
+                            <TextBox Name="r7" Height="26" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="222" Margin="0,10"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <DockPanel Grid.Column="1">
+                    <Button Background="{x:Null}"  Height="Auto" Margin="0,130,0,164.8" Click="Button_Click_2">
+                        <Button.ToolTip>
+                            <ToolTip>
+                                Обновить данные
+                            </ToolTip>
+                        </Button.ToolTip>
+                        <materialDesign:PackIcon Kind="ArrowLeftThick"/>
+                    </Button>
+                </DockPanel>
+            </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Все клиенты">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <TextBlock  Text="Поиск по фио" FontSize="16"/>
+                                <TextBox Margin="10,0,0,0" x:Name="textlike" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged"/>
+                            </StackPanel>
+
+                            <StackPanel Margin="60,0,10,0">
+                                <TextBlock Text="Поиск по паспорту" FontSize="16" />
+                                <TextBox Name="textlike2" Margin="10,0,0,0" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" TextChanged="textlike2_TextChanged"/>
+                            </StackPanel>
+
+                            <StackPanel Margin="60,0,10,0">
+                                <TextBlock Text="Поиск по дате рождения" FontSize="16"/>
+                                <TextBox Name="textlike3" Margin="10,0,0,0" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged_1"/>
+                            </StackPanel>
+
+                            <StackPanel Margin="60,0,10,0">
+                                <TextBlock Text="По адресу проживания" FontSize="16"/>
+                                <TextBox Name="textlike4" Margin="10,0,0,0" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" TextChanged="textlike4_TextChanged"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <DataGrid   Background="{x:Null}" x:Name="Maingrid" RowEditEnding="Maingrid_RowEditEnding" VerticalGridLinesBrush="#FF6B6A6A" HorizontalGridLinesBrush="{DynamicResource PrimaryHueDarkBrush}" Margin="0,50,0,0"/>
+                    </Grid>
+                </TabItem>
+                <TabItem  Header="Управление пользователями">
+                    <Grid>
+
+                        <Rectangle RadiusY="40" RadiusX="40" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="350" Margin="10" Stroke="Black" VerticalAlignment="Center" Width="772"/>
+                        <StackPanel Margin="50"  HorizontalAlignment="Stretch">
+                            <ComboBox  Width="300" Name="list2" SelectionChanged="list2_SelectionChanged"/>
+                            <Grid Height="300" Margin="130,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" >
+                                    <TextBlock Height="26" HorizontalAlignment="Left" Text="Ид пользователя"     Width="170" Margin="0,20" FontSize="16" FontFamily="Global Serif"/>
+                                    <TextBlock Height="26" HorizontalAlignment="Left" Text="Логин пользователя"  Width="170" Margin="0,20" FontSize="16" FontFamily="Global Serif"/>
+                                    <TextBlock Height="26" HorizontalAlignment="Left" Text="Пароль пользователя"  Width="170" Margin="0,20" FontSize="16" FontFamily="Global Serif"/>
+                                    <TextBlock Height="26" HorizontalAlignment="Left" Text="Права пользователя"  Width="170" Margin="0,20" FontSize="16" FontFamily="Global Serif"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="220" Margin="0,20" IsEnabled="False" Name="q1"/>
+                                    <TextBox Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="220" Margin="0,20" IsEnabled="False" Name="q2"/>
+                                    <TextBox Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="220" Margin="0,20" IsEnabled="False" Name="q3" TextChanged="q3_TextChanged"/>
+                                    <ComboBox Height="26" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="220" Margin="0,20" IsEnabled="False" Name="q4">
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <Button Width="160" Content="Обновить данные" Margin="0,350,0,0" Click="Button_Click_3"/>
+                    </Grid>
+                </TabItem>
+            </dragablz:TabablzControl>
+        </Grid>
+    </Grid>
+</Window>
