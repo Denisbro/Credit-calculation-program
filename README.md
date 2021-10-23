@@ -2,4 +2,4 @@
 ### Инструменты C# + Wpf
 _____
 #### Схема баззы данных
-![alt text](img/Database.png)
+![alt text](img/Database.jpg)
