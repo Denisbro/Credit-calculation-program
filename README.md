@@ -1,1 +1,1 @@
-# Credit-calculation-program
+## Курсовая работа на тему "Выдача кредита" 
